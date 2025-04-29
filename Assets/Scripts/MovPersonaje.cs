@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovPersonaje : MonoBehaviour
 {
+    public Vector3 posInicial;
     public float velocidad = 5f;
     public float multiplicador = 5f;
     
@@ -24,6 +25,7 @@ public class MovPersonaje : MonoBehaviour
     
     void Start()
     {
+        this.GetComponent<Transform>().position = posInicial;
         rb = this.GetComponent<Rigidbody2D>();
         
         animatorController = this.GetComponent<Animator>();
@@ -36,33 +38,90 @@ public class MovPersonaje : MonoBehaviour
         
 
     }
+    void FixedUpdate()
+    {
+        //v.movimiento del personaje
+        rb.velocity = new Vector2(movTeclas*multiplicador, rb.velocity.y);
+        
 
+        if(activaSaltoFixed == true){
+            //PuedoSaltar Fixed
+            rb.AddForce(
+                new Vector2 (0,multiplicadorSalto),
+                ForceMode2D.Impulse
+            );
+            activaSaltoFixed = false;
+        }
+        
+    }
 
     void Update()
     {
         if(GameManager.estoyMuerto) return;
 
+       //APROXIMACION MOVIMIENTO 1
+       // float positionActual = this.GetComponent<Transform>().position.x;
+       // transform.position = new Vector3(positionActual-0.001f,0,0); 
+
+       // transform.Translate(velocidad,0,0); 
+
+       // Debug.Log(transform.rotation); pero funciona con quaternions = 0.00, 0.00, 0.00, 1.00
+       // transform.Rotate(0,0,velocidad);
+       // transform.localScale = new Vector3(velocidad,0,0);
+
+        // para ir a la izquierda con la A
+        /*if(Input.GetKey(KeyCode.A)){
+            transform.Translate(velocidad*-1, 0, 0);
+         }
+
+        // para ir a la derecha con la D
+         if(Input.GetKey(KeyCode.D)){
+            transform.Translate(velocidad, 0, 0);
+        }*/
+
         float miDeltaTime = Time.deltaTime; //tiempo que transcurre entre frames
 
         //MOVIMIENTO
         float movTeclas = Input.GetAxis("Horizontal"); //(a -1f - d 1f)
-        //float MovTeclasY = Input.GetAxis("Vertical"); //(w -1f - s 1f)  por si tiene vuelo
+        //float MovTeclasY = Input.GetAxis("Vertical"); //(w 1f - s -1f)  por si tiene vuelo
         
         //Debug.Log(Input.GetAxis("Horizontal"));
 
-        /*aproximacion1
-            transform.position = new Vector3(
-             transform.position.x+(MovTeclas/100),
+       
+        /*aprox1 
+        transform.position = new Vector3(
+             transform.position.x+(movTeclas/100),
              transform.position.y,
              transform.position.z
         );*/
 
-        /*aproximacion2
-            transform.Translate(
-             MovTeclas*(Time.deltaTime*multiplicador),
+        transform.Translate(
+             movTeclas*(Time.deltaTime*multiplicador),
              0, 
              0
-        );*/
+        );
+
+
+        //Mejora de SALTO
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
+        Debug.DrawRay(transform.position, Vector2.down, Color.magenta);
+
+        if(hit){
+            puedoSaltar = true;
+            Debug.Log(hit.collider.name);
+        }else{
+            puedoSaltar =false;
+        }
+
+        //SALTO
+        if(Input.GetKeyDown(KeyCode.Space) && puedoSaltar){
+            activaSaltoFixed = true;
+            //PuedoSaltar Fixed
+            /*rb.AddForce(
+                new Vector2 (0,multiplicadorSalto),
+                ForceMode2D.Impulse
+            );*/
+        }
 
         
         //Aprox de FLIP
@@ -85,35 +144,14 @@ public class MovPersonaje : MonoBehaviour
         }
 
 
-        //Animacion WALKING
+        //Animacion IDLE TO WALKING
         if(movTeclas != 0){
-            animatorController.SetBool ("activaCamina",true);
+            animatorController.SetBool ("activateWalk",true);
         }else{
-            animatorController.SetBool ("activaCamina",false);
+            animatorController.SetBool ("activateWalk",false);
         }
             
-        
-            
-        //Mejora de SALTO
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
-        Debug.DrawRay(transform.position, Vector2.down, Color.magenta);
-
-        if(hit){
-            puedoSaltar = true;
-            Debug.Log(hit.collider.name);
-        }else{
-            puedoSaltar =false;
-        }
-
-        //SALTO
-        if(Input.GetKeyDown(KeyCode.Space) && puedoSaltar){
-            activaSaltoFixed = true;
-            //PuedoSaltar Fixed
-            /*rb.AddForce(
-                new Vector2 (0,multiplicadorSalto),
-                ForceMode2D.Impulse
-            );*/
-        }
+    
 
         //Comprobar salida de línea horizontal baja (fuera de mapa)
         if(transform.position.y <= -3){
@@ -133,21 +171,7 @@ public class MovPersonaje : MonoBehaviour
             puedoSaltar = true;
     }*/
 
-    void FixedUpdate()
-    {
-        //v.movimiento del personaje
-        rb.velocity = new Vector2(movTeclas*multiplicador, rb.velocity.y);
 
-        if(activaSaltoFixed == true){
-            //PuedoSaltar Fixed
-            rb.AddForce(
-                new Vector2 (0,multiplicadorSalto),
-                ForceMode2D.Impulse
-            );
-            activaSaltoFixed = false;
-        }
-        
-    }
 
     public void Respawnear(){
         

@@ -10512,7 +10512,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.8125, y: 0.8125}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -10626,7 +10626,7 @@ Animator:
   m_GameObject: {fileID: 1759632427}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aa60cb1ee62f64111bc42fce4be0c018, type: 2}
+  m_Controller: {fileID: 9100000, guid: e0bc391d1b5a44a0c9aa54af3995091c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -11519,6 +11519,10 @@ PrefabInstance:
     - target: {fileID: 3110869169219609342, guid: 7841d6fde10212b48befd2c338e5c3f4, type: 3}
       propertyPath: m_Name
       value: 0enemigo_fantasma
+      objectReference: {fileID: 0}
+    - target: {fileID: 4650714673090570092, guid: 7841d6fde10212b48befd2c338e5c3f4, type: 3}
+      propertyPath: ghostSpeed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7622098512650359729, guid: 7841d6fde10212b48befd2c338e5c3f4, type: 3}
       propertyPath: m_LocalPosition.x
