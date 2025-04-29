@@ -10,6 +10,8 @@ public class MovPersonaje : MonoBehaviour
     
     public float multiplicadorSalto = 5f;
 
+    public bool miraDerecha = true;
+
     float movTeclas;
     private bool puedoSaltar = true;
     private bool activaSaltoFixed = false;
@@ -20,7 +22,7 @@ public class MovPersonaje : MonoBehaviour
 
     GameObject respawn;
 
-    private static bool estoyMuerto = false;
+    //private static bool estoyMuerto = false;
 
     
     void Start()
@@ -33,8 +35,9 @@ public class MovPersonaje : MonoBehaviour
         respawn = GameObject.Find("Respawn");
         //respawn = this.GetComponent<GameObject>("Respawn");
       
-       // transform.position = new Vector3(-14.6f, 2.36f, 0);
+       //transform.position = new Vector3(-14.6f, 2.36f, 0);
         transform.position = respawn.transform.position;
+        //Respawnear();
         
 
     }
@@ -108,7 +111,7 @@ public class MovPersonaje : MonoBehaviour
 
         if(hit){
             puedoSaltar = true;
-            Debug.Log(hit.collider.name);
+            ////Debug.Log(hit.collider.name);
         }else{
             puedoSaltar =false;
         }
@@ -139,8 +142,10 @@ public class MovPersonaje : MonoBehaviour
         //Aprox2 de FLIP(ambas direcciones)
         if(movTeclas < 0){
             this.GetComponent<SpriteRenderer>().flipX = true;
+            miraDerecha = false;
         }else if(movTeclas > 0){
             this.GetComponent<SpriteRenderer>().flipX = false;
+            miraDerecha = true;
         }
 
 
@@ -153,7 +158,7 @@ public class MovPersonaje : MonoBehaviour
             
     
 
-        //Comprobar salida de línea horizontal baja (fuera de mapa)
+        //Comprobar salida de línea horizontal baja (FUERA DE MAPA)
         if(transform.position.y <= -3){
             AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxDead);
             GameManager.vidas -= 1;

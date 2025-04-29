@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class DiamondScript : MonoBehaviour
 {
-    Animator animadorController;
+    Animator dAnimatorController;
     void Start()
     {
-        animadorController = this.GetComponent<Animator>();
+        dAnimatorController = this.GetComponent<Animator>();
     }
 
     
@@ -16,12 +16,12 @@ public class DiamondScript : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D col){
-        if(col.gameObject.tag == "Player"){
+    void OnTriggerEnter2D(Collider2D colD){
+        if(colD.gameObject.tag == "Player"){
             GameManager.puntoDiamante += 1;
-            animadorController.SetBool("destroyDiamond", true);
+            dAnimatorController.SetBool("destroyDiamond", true);
             AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxCoin);
-            Destroy(this.gameObject, 1f);
+            Destroy(this.gameObject, 0.9f);
         }
     }
 }

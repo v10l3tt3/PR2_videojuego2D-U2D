@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MonedaScript : MonoBehaviour
 {
-    Animator miAnimatorController;
+    Animator cAnimatorController;
     void Start()
     {
-        miAnimatorController = this.GetComponent<Animator>();
+        cAnimatorController = this.GetComponent<Animator>();
     }
 
     
@@ -16,12 +16,12 @@ public class MonedaScript : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D col){
-        if(col.gameObject.tag == "Player"){
+    void OnTriggerEnter2D(Collider2D colC){
+        if(colC.gameObject.tag == "Player"){
             GameManager.puntos += 1;
-            miAnimatorController.SetBool("destroyCoin", true);
+            cAnimatorController.SetBool("destroyCoin", true);
             AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxCoin);
-            Destroy(this.gameObject, 1f);
+            Destroy(this.gameObject, 0.9f);
         }
     }
 }

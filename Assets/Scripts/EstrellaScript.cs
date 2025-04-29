@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EstrellaScript : MonoBehaviour
 {
-    Animator animatorController;
+    Animator sAnimatorController;
     void Start()
     {
-        animatorController = this.GetComponent<Animator>();
+        sAnimatorController = this.GetComponent<Animator>();
     }
 
     
@@ -16,12 +16,12 @@ public class EstrellaScript : MonoBehaviour
             
     }
 
-    void OnTriggerEnter2D(Collider2D col){
-        if(col.gameObject.tag == "Player"){
+    void OnTriggerEnter2D(Collider2D colS){
+        if(colS.gameObject.tag == "Player"){
             GameManager.puntos += 5;
-            animatorController.SetBool("destroyStar", true);
+            sAnimatorController.SetBool("destroyStar", true);
             AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxCoin);
-            Destroy(this.gameObject, 1f);
+            Destroy(this.gameObject, 0.9f);
         }
     }
 }
