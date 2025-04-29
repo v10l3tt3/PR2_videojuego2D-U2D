@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static int vidas = 3;
 
     public static int puntos = 0;
+    public static int puntoDiamante = 0;
 
     public static bool estoyMuerto = false;
 
