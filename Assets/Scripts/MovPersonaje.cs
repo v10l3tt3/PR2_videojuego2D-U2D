@@ -24,6 +24,8 @@ public class MovPersonaje : MonoBehaviour
 
     //private static bool estoyMuerto = false;
 
+    //bool iAmRed;
+
     
     void Start()
     {
@@ -161,8 +163,8 @@ public class MovPersonaje : MonoBehaviour
         //Comprobar salida de línea horizontal baja (FUERA DE MAPA)
         if(transform.position.y <= -3){
             AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxDead);
-            GameManager.vidas -= 1;
-            Respawnear();
+
+            transform.position = respawn.transform.position;
         }
 
         //0 vidas
@@ -180,9 +182,9 @@ public class MovPersonaje : MonoBehaviour
 
     public void Respawnear(){
         
-        Debug.Log("vidas: "+GameManager.vidas);
-        GameManager.vidas = GameManager.vidas - 1;
-        Debug.Log("vidas: "+GameManager.vidas);
+        //Debug.Log("vidas: "+GameManager.vidas);
+        //GameManager.vidas = GameManager.vidas - 1;
+        //Debug.Log("vidas: "+GameManager.vidas);
         transform.position = respawn.transform.position;
 
     }
@@ -202,4 +204,15 @@ public class MovPersonaje : MonoBehaviour
         }*/
 
     }
+
+    /*void ColorChange(){
+
+        if(iAmRed){
+            this.GetComponent<SpriteRenderer>().color = Color.white;
+            iAmRed = false;
+        }else{
+            this.GetComponent<SpriteRenderer>().color = Color.red;
+            iAmRed = true;
+        }
+    }*/
 }

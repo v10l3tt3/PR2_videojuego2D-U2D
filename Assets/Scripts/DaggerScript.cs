@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class DaggerScript : MonoBehaviour
 {
@@ -8,10 +9,16 @@ public class DaggerScript : MonoBehaviour
     bool dagaDerecha = true;
 
     public float speedDaga = 2.0f;
+
+    float tiempoDestruccion = 5.5f;
+    float queHoraEs;
+
     void Start()
     {
         personaje = GameObject.Find("Personaje");
         dagaDerecha = personaje.GetComponent<MovPersonaje>().miraDerecha;
+
+        queHoraEs = Time.time;  
     }
 
     void Update()
@@ -25,6 +32,10 @@ public class DaggerScript : MonoBehaviour
         }else{
             transform.Translate((speedDaga*Time.deltaTime)*-1,0,0, Space.World);
         }
+
+        if(Time.time >= queHoraEs + tiempoDestruccion){
+            Destroy(this.gameObject, 0.1f);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D colDS){
@@ -34,6 +45,7 @@ public class DaggerScript : MonoBehaviour
         if(colDS.gameObject.tag == "Enemy"){
             //AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxDagger);
             Destroy(colDS.gameObject, 0.1f);
+            GameManager.enemiesKills += 1;
             Destroy(this.gameObject, 0.1f);
         }
     }
