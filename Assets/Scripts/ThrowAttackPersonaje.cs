@@ -13,12 +13,12 @@ public class ThrowAttackPersonaje : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E)){
+        if(Input.GetKeyDown(KeyCode.X)){
             Instantiate(daggerPrefab, transform.position, Quaternion.identity);
 
 
             ///dagger.transform.localScale = new Vector3(1, 1, 1);
-            ///AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxDagger);
+            AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxDagger);
         }
     }
 }

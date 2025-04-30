@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip fxCoin;
     public AudioClip fxFire;
     public AudioClip fxDead;
+
+    public AudioClip fxDagger;
     
     
 
