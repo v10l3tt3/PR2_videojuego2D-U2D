@@ -40,13 +40,28 @@ public class DaggerScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D colDS){
         
-        Debug.Log(colDS.gameObject.tag == "Enemy");
+        Debug.Log(colDS.gameObject.tag == "EnemyGhost");
         
-        if(colDS.gameObject.tag == "Enemy"){
-            //AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxDagger);
+        
+        if(colDS.gameObject.tag == "EnemyGhost"){
+            //no AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxDagger);
             Destroy(colDS.gameObject, 0.1f);
             GameManager.enemiesKills += 1;
             Destroy(this.gameObject, 0.1f);
+        }
+        Debug.Log(colDS.gameObject.tag == "EnemyMonster");
+
+        if(colDS.gameObject.tag == "EnemyMonster"){
+            //no AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxDagger);
+            Rigidbody2D rb = colDS.gameObject.GetComponent<Rigidbody2D>();
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+           
+            //animacion de muerte
+            colDS.gameObject.GetComponent<Animator>().SetBool("SliceinHalf", true);
+            Destroy(colDS.gameObject, 1.1f);
+            GameManager.enemiesKills += 1;
+            Destroy(this.gameObject, 3.1f);
         }
     }
 }

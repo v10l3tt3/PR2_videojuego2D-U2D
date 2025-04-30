@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ThrowAttackPersonaje : MonoBehaviour
 {
-    public GameObject daggerPrefab;
+    public GameObject shuriken_0Prefab;
     void Start()
     {
         
@@ -14,10 +14,10 @@ public class ThrowAttackPersonaje : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.X)){
-            Instantiate(daggerPrefab, transform.position, Quaternion.identity);
+            Instantiate(shuriken_0Prefab, transform.position, Quaternion.identity);
 
 
-            ///dagger.transform.localScale = new Vector3(1, 1, 1);
+            
             AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxDagger);
         }
     }

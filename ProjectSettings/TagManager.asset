@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
+  - EnemyGhost
+  - EnemyMonster
   layers:
   - Default
   - TransparentFX
