@@ -12,6 +12,15 @@ public class AudioManager : MonoBehaviour
     public AudioClip fxDead;
 
     public AudioClip fxDagger;
+    public AudioClip monsterDeathFX;
+
+    public AudioClip fxStarBonus;
+
+    public AudioClip fxDiamondCompleted;
+
+    public AudioClip fxGameOver;
+
+    
     
     
 

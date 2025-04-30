@@ -20,7 +20,7 @@ public class EstrellaScript : MonoBehaviour
         if(colS.gameObject.tag == "Player"){
             GameManager.puntoEstrella += 1;
             sAnimatorController.SetBool("destroyStar", true);
-            AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxCoin);
+            AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxStarBonus);
             Destroy(this.gameObject, 0.9f);
         }
     }

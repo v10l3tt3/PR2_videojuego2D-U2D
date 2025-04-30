@@ -15,9 +15,6 @@ public class ThrowAttackPersonaje : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.X)){
             Instantiate(shuriken_0Prefab, transform.position, Quaternion.identity);
-
-
-            
             AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxDagger);
         }
     }

@@ -10,6 +10,8 @@ public class BatMonsterScript : MonoBehaviour
     public float batSpeed = 7.0f;
 
     AudioSource _audioSource;
+
+    
     void Start()
     {
         posicionInicial = transform.position;
@@ -17,6 +19,7 @@ public class BatMonsterScript : MonoBehaviour
         personaje = GameObject.FindGameObjectWithTag("Player");
 
         _audioSource = this.GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame

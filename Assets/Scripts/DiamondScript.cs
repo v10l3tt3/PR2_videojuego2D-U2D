@@ -20,7 +20,7 @@ public class DiamondScript : MonoBehaviour
         if(colD.gameObject.tag == "Player"){
             GameManager.puntoDiamante += 1;
             dAnimatorController.SetBool("destroyDiamond", true);
-            AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxCoin);
+            AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxDiamondCompleted);
             Destroy(this.gameObject, 0.9f);
         }
     }

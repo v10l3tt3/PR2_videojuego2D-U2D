@@ -40,6 +40,8 @@ public class MovPersonaje : MonoBehaviour
        //transform.position = new Vector3(-14.6f, 2.36f, 0);
         transform.position = respawn.transform.position;
         //Respawnear();
+
+        //GameObject.Find("panelGameOver").SetActive(false);
         
 
     }
@@ -170,6 +172,12 @@ public class MovPersonaje : MonoBehaviour
         //0 vidas
         if(GameManager.vidas <= 0){
             GameManager.estoyMuerto = true;
+
+            //mostrar panel de game over
+            //no GameObject.Find("panelGameOver").SetActive(false);
+
+            //reproducir voz de game over
+            AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxGameOver);
         }
     }
 

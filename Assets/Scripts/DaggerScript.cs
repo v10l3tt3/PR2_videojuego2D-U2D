@@ -52,13 +52,16 @@ public class DaggerScript : MonoBehaviour
         Debug.Log(colDS.gameObject.tag == "EnemyMonster");
 
         if(colDS.gameObject.tag == "EnemyMonster"){
-            //no AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxDagger);
+            AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.monsterDeathFX);
+            
+            
+            //animacion de muerte
+            colDS.gameObject.GetComponent<Animator>().SetBool("SliceinHalf", true);
+            
             Rigidbody2D rb = colDS.gameObject.GetComponent<Rigidbody2D>();
             rb.constraints = RigidbodyConstraints2D.FreezePositionX;
             rb.constraints = RigidbodyConstraints2D.FreezePositionY;
-           
-            //animacion de muerte
-            colDS.gameObject.GetComponent<Animator>().SetBool("SliceinHalf", true);
+
             Destroy(colDS.gameObject, 1.1f);
             GameManager.enemiesKills += 1;
             Destroy(this.gameObject, 3.1f);
