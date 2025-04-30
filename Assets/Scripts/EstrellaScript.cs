@@ -18,7 +18,7 @@ public class EstrellaScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D colS){
         if(colS.gameObject.tag == "Player"){
-            GameManager.puntos += 5;
+            GameManager.puntoEstrella += 1;
             sAnimatorController.SetBool("destroyStar", true);
             AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxCoin);
             Destroy(this.gameObject, 0.9f);

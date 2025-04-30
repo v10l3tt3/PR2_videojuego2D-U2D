@@ -18,7 +18,7 @@ public class MonedaScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D colC){
         if(colC.gameObject.tag == "Player"){
-            GameManager.puntos += 1;
+            GameManager.puntosCoin += 1;
             cAnimatorController.SetBool("destroyCoin", true);
             AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxCoin);
             Destroy(this.gameObject, 0.9f);

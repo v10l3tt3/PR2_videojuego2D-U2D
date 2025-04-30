@@ -6,9 +6,11 @@ public class GameManager : MonoBehaviour
 {
     public static int vidas = 3;
 
-    public static int puntos = 0;
+    public static int puntosCoin = 0;
 
     public static int enemiesKills = 0;
+
+    public static int puntoEstrella = 0;
     public static int puntoDiamante = 0;
 
     public static bool estoyMuerto = false;
@@ -16,7 +18,10 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     GameObject vidasText;
-    GameObject puntosText;
+    GameObject monedasText;
+    GameObject muertesText;
+    GameObject estrellaText;
+    GameObject diamanteText;
     
     void Awake(){
        if(Instance == null ){
@@ -28,7 +33,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         vidasText = GameObject.Find("vidasText");
-        puntosText = GameObject.Find("puntosText");
+        monedasText = GameObject.Find("monedasText");
+        muertesText = GameObject.Find("muertesText");
+        estrellaText = GameObject.Find("estrellaText");
+        diamanteText = GameObject.Find("diamanteText");
     }
 
     
@@ -36,13 +44,15 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Vidas: " + vidas);
         Debug.Log("Enemigos Muertos: " + enemiesKills);
-        Debug.Log("Puntos: " + puntos); 
+        Debug.Log("Puntos: " + puntosCoin); 
+        Debug.Log("Estrella: " + puntoEstrella);
         Debug.Log("Diamantes: " + puntoDiamante);
 
         vidasText.GetComponent<TMPro.TextMeshProUGUI>().text = vidas.ToString();
-        //GetComponent<TMPro.TextMeshProUGUI>().text = enemiesKills.ToString();
-        puntosText.GetComponent<TMPro.TextMeshProUGUI>().text = "Score Points: "+ puntos.ToString();
-        //GetComponent<TMPro.TextMeshProUGUI>().text = puntoDiamante.ToString+();
+        muertesText.GetComponent<TMPro.TextMeshProUGUI>().text = enemiesKills.ToString();
+        monedasText.GetComponent<TMPro.TextMeshProUGUI>().text = puntosCoin.ToString();
+        estrellaText.GetComponent<TMPro.TextMeshProUGUI>().text = puntoEstrella.ToString();
+        diamanteText.GetComponent<TMPro.TextMeshProUGUI>().text = puntoDiamante.ToString();
         
     }
 }

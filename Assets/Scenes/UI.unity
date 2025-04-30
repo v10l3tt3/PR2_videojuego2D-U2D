@@ -2350,7 +2350,7 @@ MonoBehaviour:
   fxFire: {fileID: 8300000, guid: 699b58681b9704266bfc982b0d172d8c, type: 3}
   fxDead: {fileID: 8300000, guid: 051cdd272d83d43acae7813b13921bb0, type: 3}
   fxDagger: {fileID: 8300000, guid: 0570ffd4c91a60d49a31693cd5418824, type: 3}
-  musicObj: {fileID: 0}
+  musicObj: {fileID: 1482392841}
 --- !u!4 &1482392844
 Transform:
   m_ObjectHideFlags: 0
