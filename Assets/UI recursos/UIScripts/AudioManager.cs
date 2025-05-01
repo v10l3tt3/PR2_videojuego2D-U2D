@@ -6,7 +6,10 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public AudioClip bandaSonora;
-    public AudioClip fxButton;
+    public AudioClip fxButtonIn;
+    public AudioClip fxButtonOut;
+    public AudioClip fxPlayButton;
+    public AudioClip fxExitGame;
     public AudioClip fxCoin;
     public AudioClip fxFire;
     public AudioClip fxDead;
@@ -55,7 +58,7 @@ public class AudioManager : MonoBehaviour
         audioMusic = musicObj.GetComponent<AudioSource>();
         audioMusic.clip = bandaSonora;
         audioMusic.loop = true;
-        audioMusic.volume = 0.2f;
+        audioMusic.volume = 0.1f;
         audioMusic.Play();
         
     }

@@ -24,21 +24,23 @@ public class UIInicioScript : MonoBehaviour
 
     public void ShowSettings()
     {
-        AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxButton);
+        AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxButtonIn);
         settingsPanel.SetActive(true);
     }
 
     public void HideSettings()
     {
+        AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxButtonOut);
         settingsPanel.SetActive(false);
     }
 
     public void ExitGame()
     {
+        AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxExitGame);
         Application.Quit();
     }
 
     public void ButtonSound(){
-        AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxButton);
+        AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxPlayButton);
     }
 }

@@ -22,6 +22,8 @@ public class MovPersonaje : MonoBehaviour
 
     GameObject respawn;
 
+    GameObject panelGameOver;
+
     //private static bool estoyMuerto = false;
 
     //bool iAmRed;
@@ -41,7 +43,7 @@ public class MovPersonaje : MonoBehaviour
         transform.position = respawn.transform.position;
         //Respawnear();
 
-        //GameObject.Find("panelGameOver").SetActive(false);
+        GameObject.Find("panelGameOver").SetActive(false);
         
 
     }
@@ -174,7 +176,7 @@ public class MovPersonaje : MonoBehaviour
             GameManager.estoyMuerto = true;
 
             //mostrar panel de game over
-            //no GameObject.Find("panelGameOver").SetActive(false);
+            GameObject.Find("panelGameOver").SetActive(true);
 
             //reproducir voz de game over
             AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxGameOver);
