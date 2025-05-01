@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public static int puntoDiamante = 0;
 
     public static bool estoyMuerto = false;
-    //public static bool gameOverText = false;
+    
 
     public static GameManager Instance { get; private set; }
 
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         estrellaText = GameObject.Find("estrellaText");
         diamanteText = GameObject.Find("diamanteText");
 
-        //GameObject.Find("panelGameOver").SetActive(false);
+        
 
     }
 
@@ -59,8 +59,7 @@ public class GameManager : MonoBehaviour
         estrellaText.GetComponent<TMPro.TextMeshProUGUI>().text = puntoEstrella.ToString();
         diamanteText.GetComponent<TMPro.TextMeshProUGUI>().text = puntoDiamante.ToString();
 
-        //if(gameOverText == true){
-            //GameObject.Find("panelGameOver").SetActive(true);
-        //}
+        
+
     }
 }

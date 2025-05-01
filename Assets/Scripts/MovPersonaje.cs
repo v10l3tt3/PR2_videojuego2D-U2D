@@ -43,7 +43,9 @@ public class MovPersonaje : MonoBehaviour
         transform.position = respawn.transform.position;
         //Respawnear();
 
-        GameObject.Find("panelGameOver").SetActive(false);
+        //encontrar panel de game over
+        panelGameOver = GameObject.Find("panelGameOver");
+        panelGameOver.SetActive(false);
         
 
     }
@@ -175,9 +177,9 @@ public class MovPersonaje : MonoBehaviour
         if(GameManager.vidas <= 0){
             GameManager.estoyMuerto = true;
 
+            
             //mostrar panel de game over
-            GameObject.Find("panelGameOver").SetActive(true);
-
+            panelGameOver.SetActive(true);
             //reproducir voz de game over
             AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxGameOver);
         }

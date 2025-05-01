@@ -71,7 +71,7 @@ public class AudioManager : MonoBehaviour
 
     //Metodo seleccionador de clips de audio
     public void SonarClipUnaVez(AudioClip ac){
-     gestorAudio.PlayOneShot(ac, 1f);
+        gestorAudio.PlayOneShot(ac, 1f);
     }
 
     //Para efectos de sonido determinados por triggers

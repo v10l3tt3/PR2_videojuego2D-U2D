@@ -5449,7 +5449,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 4.7109375
+  orthographic size: 4.21875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -11743,7 +11743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8babc18b39424a1aaeb3701a53e7fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bandaSonora: {fileID: 8300000, guid: 697dbe6c539d2485f836445c8a8dcb28, type: 3}
+  bandaSonora: {fileID: 8300000, guid: 2deb190ada8100e4482daa735e084458, type: 3}
   fxButtonIn: {fileID: 8300000, guid: 92ce5b06f77f9af45a2e7807110194cd, type: 3}
   fxButtonOut: {fileID: 8300000, guid: 16b5dce53c4c2ee4cadc2812687e3ee8, type: 3}
   fxPlayButton: {fileID: 8300000, guid: 412301ce5de984941ab12a487237c6dc, type: 3}
